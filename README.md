@@ -35,7 +35,7 @@ The spoofer doesn't support MAC spoofing yet until then use something like [Tech
 
 ```batch
   git clone https://github.com/vincuska/vSpoofer
-  cd sudoku
+  cd vSpoofer
 ```
 
 ```batch
