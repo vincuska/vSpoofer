@@ -31,6 +31,8 @@ The spoofer doesn't support MAC spoofing yet until then use something like [Tech
 
 ## Run Locally
 
+### Run terminal as administrator
+
 ```batch
   git clone https://github.com/vincuska/vSpoofer
   cd sudoku
