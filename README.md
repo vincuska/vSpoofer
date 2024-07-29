@@ -20,7 +20,7 @@ The spoofer doesn't support MAC spoofing yet until then use something like [Tech
 - Spoof Baseboard Serial Number
 - Spoof CPU Serial Number
 - Spoof Disk Serial Number
-- Spoof PC Name
+- Spoof PC Name (if you have Autologon set up it will break)
 - Spoof GUID
 - Spoof Product ID
 
