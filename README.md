@@ -1,6 +1,6 @@
 # vSpoofer
 
-Python HWID Spoofer
+Python HWID Spoofer for 64-bit Windows (only tested on Windows 11)
 
 You can download the two essential programs and the sys file if you don't trust them
 
