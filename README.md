@@ -8,6 +8,10 @@ AMIDEWINx64.exe & amifldrv64.sys are from [here](https://download.schenker-tech.
 
 Volumeid.exe is a [Sysinternal](https://learn.microsoft.com/en-us/sysinternals/) tool from [here](https://learn.microsoft.com/en-us/sysinternals/downloads/volumeid)
 
+## Importart
+
+The spoofer doesn't support MAC spoofing yet until then use something like [Technitium MAC Address Changer](https://technitium.com/tmac/)
+
 ## Features
 
 ### Spoofers
@@ -19,7 +23,6 @@ Volumeid.exe is a [Sysinternal](https://learn.microsoft.com/en-us/sysinternals/)
 - Spoof PC Name
 - Spoof GUID
 - Spoof Product ID
-- Spoof MAC Address
 
 ### Cleaners
 - Clean Ubisoft Cache
