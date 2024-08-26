@@ -14,6 +14,13 @@ def is_admin():
     except:
         return False
 
+title = """██╗   ██╗███████╗██████╗  ██████╗  ██████╗ ███████╗███████╗██████╗
+██║   ██║██╔════╝██╔══██╗██╔═══██╗██╔═══██╗██╔════╝██╔════╝██╔══██╗
+██║   ██║███████╗██████╔╝██║   ██║██║   ██║█████╗  █████╗  ██████╔╝
+╚██╗ ██╔╝╚════██║██╔═══╝ ██║   ██║██║   ██║██╔══╝  ██╔══╝  ██╔══██╗
+ ╚████╔╝ ███████║██║     ╚██████╔╝╚██████╔╝██║     ███████╗██║  ██║
+  ╚═══╝  ╚══════╝╚═╝      ╚═════╝  ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝
+"""
 
 class colors:
     HEADER = '\033[95m'
@@ -30,7 +37,6 @@ class colors:
 if not is_admin():
     print(colors.FAIL + "vSpoofer requires administrator privileges. Please run the terminal as administrator.\n" + colors.ENDC)
     exit()
-
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -93,7 +99,7 @@ def spoof_disk_sn():
             return colors.OKGREEN + f"Successfully spoofed disk serial number to {new_serial_number}" + colors.ENDC
         except subprocess.CalledProcessError as e:
             return colors.FAIL + f"An error occurred: {e}" + colors.ENDC
-    
+
 
 def spoof_pc_name():
     new_name = generate_random_string(8)
@@ -114,7 +120,7 @@ def spoof_pc_name():
             return colors.OKGREEN + f"Successfully spoofed pc name to {new_name}" + colors.ENDC
         except Exception as e:
             return colors.FAIL + f"An error occured: {e}" + colors.ENDC
-        
+
 
 def spoof_guid():
     new_guid = str(uuid.uuid4())
@@ -132,9 +138,9 @@ def spoof_guid():
                 )
                 reg.SetValueEx(reg_key, value, 0, reg.REG_SZ, new_guid)
                 reg.CloseKey(reg_key)
-                return colors.OKGREEN + f"Updated {key}\\{value} with value {new_guid}" + colors.ENDC
+                return colors.OKGREEN + f"Successfully spoofed guid to {new_guid}" + colors.ENDC
             except Exception as e:
-                return colors.FAIL + f"Failed to update {key}\\{value}: {e}" + colors.ENDC
+                return colors.FAIL + f"An error occured: {e}" + colors.ENDC
 
 
 def spoof_product_id():
@@ -149,7 +155,7 @@ def spoof_product_id():
         return colors.OKGREEN + f"Updated {key}\\{value} with value {new_product_id}" + colors.ENDC
     except Exception as e:
         return colors.FAIL + f"Failed to update {key}\\{value}: {e}" + colors.ENDC
-    
+
 
 def clean_ubisoft_cache():
     cache_path = r"C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\cache"
@@ -174,7 +180,7 @@ def clean_valorant_cache():
 
 
 def clean_battlenet_cache():
-    cache_path = r"C:\Users\{user}\AppData\Local\Blizzard Entertainment\Telemetry"
+    cache_path = r"C:\Users\vince\AppData\Local\Blizzard Entertainment\Telemetry"
     if os.path.exists(cache_path):
         for root, dirs, files in os.walk(cache_path):
             for file in files:
@@ -182,7 +188,7 @@ def clean_battlenet_cache():
         return colors.OKGREEN + "Battle.net cache cleaned." + colors.ENDC
     else:
         return colors.FAIL + "Battle.net cache path not found." + colors.ENDC
-    
+
 
 def spoof_all():
     print(colors.WARNING + "\nAfter this operation everything will be spoofed.")
@@ -201,7 +207,7 @@ def spoof_all():
     else:
         return colors.FAIL + "Operation cancelled" + colors.ENDC
 
-    
+
 ###########################################################################################################################
 
 
@@ -214,8 +220,8 @@ if __name__ == "__main__":
         user_input = 0
         status = ""
         clear()
-        print(colors.OKCYAN + "vSpoofer\n" + colors.ENDC)
-        print("1. Spoofing")
+        print(colors.OKCYAN + title + colors.ENDC)
+        print("\n\n1. Spoofing")
         print("2. Cleaning")
         print(colors.FAIL + "\nX. Exit\n" + colors.ENDC)
 
@@ -226,11 +232,13 @@ if __name__ == "__main__":
             while True:
                 clear()
                 if status != "" and status.startswith(colors.FAIL):
-                    print(f"{status}\n")
+                    print(colors.OKCYAN + title + colors.ENDC)
+                    print(status + "\n")
                 elif status != "" and status.startswith(colors.OKGREEN):
+                    print(colors.OKCYAN + title + colors.ENDC)
                     print(f"{status} | Restart your computer for the changes to take effect\n")
                 else:
-                    print(colors.OKCYAN + "vSpoofer\n" + colors.ENDC)
+                    print(colors.OKCYAN + title + colors.ENDC + "\n\n")
                 print("1. Spoof System UUID")
                 print("2. Spoof System Serial Number")
                 print("3. Spoof Baseboard Serial Number")
@@ -241,7 +249,7 @@ if __name__ == "__main__":
                 print("8. Spoof Product ID")
                 print(colors.BOLD + "\n9. Spoof All" + colors.ENDC)
                 print(colors.FAIL + "\nX. Exit" + colors.ENDC)
-                
+
                 user_input = input(colors.BOLD + "\nvSpoofer $ ")
 
                 if user_input == "1":
@@ -269,13 +277,12 @@ if __name__ == "__main__":
         elif user_input == "2":
             while True:
                 clear()
-                if status != "":
-                    print(f"{status}\n")
-                else:
-                    print(colors.OKCYAN + "vSpoofer\n" + colors.ENDC)
+                print(colors.OKCYAN + title + colors.ENDC)
+                print(status + "\n")
                 print("1. Clean Ubisoft Cache")
                 print("2. Clean Valorant Cache")
                 print("3. Clean Battle.net Cache")
+                print("4. Clean Epic Games Cache")
                 print(colors.FAIL + "\nX. Exit" + colors.ENDC)
 
                 user_input = input(colors.BOLD + "\nvSpoofer $ ")
