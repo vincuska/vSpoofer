@@ -22,6 +22,8 @@ title = """██╗   ██╗███████╗██████╗  �
   ╚═══╝  ╚══════╝╚═╝      ╚═════╝  ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝
 """
 
+computer_name = os.environ['COMPUTERNAME']
+
 class colors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -180,7 +182,7 @@ def clean_valorant_cache():
 
 
 def clean_battlenet_cache():
-    cache_path = r"C:\Users\vince\AppData\Local\Blizzard Entertainment\Telemetry"
+    cache_path = r"C:\Users\{computer_name}\AppData\Local\Blizzard Entertainment\Telemetry"
     if os.path.exists(cache_path):
         for root, dirs, files in os.walk(cache_path):
             for file in files:
